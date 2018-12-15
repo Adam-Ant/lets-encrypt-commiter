@@ -1,0 +1,10 @@
+#!/bin/sh
+CERTPATH="/path/to/lets-encrypt/data"
+CLOUDFLARE_CRED="/path/to/cf-data.ini"
+DOMAINS=("adomain.com" "anotherdomain.com" "athirddomain.com" )
+CERT_EMAIL="valid@email.com"
+
+GIT_REPO="git@github.com:Example/Cert-Dir.git"
+GIT_USER="CertBot"
+GIT_COMMITMSG="[Certbot] Update SSL Certificates"
+GIT_CERTS_DEST="path/inside/git/repo"
