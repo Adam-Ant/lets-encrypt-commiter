@@ -10,7 +10,7 @@ source vars.sh
 
 #ssh-agent sh -c "ssh-add ~/deploy-key; git clone ${GIT_REPO}"
 
-export GIT_SSH_COMMAND="/usr/bin/ssh -i ~/deploy-key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+export GIT_SSH_COMMAND="/usr/bin/ssh -i ${GIT_SSH_KEY} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 git clone ${GIT_REPO} /tmp/puppet
 
