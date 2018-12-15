@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -euo pipefail
 
 source vars.sh
 
@@ -10,9 +10,9 @@ source vars.sh
 
 #ssh-agent sh -c "ssh-add ~/deploy-key; git clone ${GIT_REPO}"
 
-export GIT_SSH_COMMAND="/usr/bin/ssh -i ${GIT_SSH_KEY} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+export GIT_SSH_COMMAND="/usr/bin/ssh -qi ${GIT_SSH_KEY} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
-git clone ${GIT_REPO} /tmp/puppet
+git clone -q ${GIT_REPO} /tmp/puppet
 
 cd /tmp/puppet
 
@@ -27,8 +27,8 @@ git config user.name "${GIT_USER}"
 git config user.email "${CERT_EMAIL}"
 git config commit.gpgsign false
 
-git commit -m "${GIT_COMMITMSG}"
+git commit -qm "${GIT_COMMITMSG}"
 
-git push
+git push -q
 
 rm -rf /tmp/puppet

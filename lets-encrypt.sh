@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -euo pipefail
 # TODO: Check for the existence of this before continuing
 source vars.sh
 
