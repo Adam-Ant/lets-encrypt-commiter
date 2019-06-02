@@ -1,8 +1,8 @@
 #!/bin/bash
 
 set -euo pipefail
-# TODO: Check for the existence of this before continuing
-source vars.sh
+
+source "${1:-./vars.sh}"
 
 # TODO: Verify all needed variables are set
 
