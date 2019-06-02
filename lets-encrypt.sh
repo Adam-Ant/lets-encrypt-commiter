@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-source "${1:-./vars.sh}"
+source "${VARS_PATH:-./vars.sh}"
 
 # TODO: Verify all needed variables are set
 

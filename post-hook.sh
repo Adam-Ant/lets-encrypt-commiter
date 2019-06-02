@@ -1,14 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-source vars.sh
-
-
-#GIT_HOST=$(echo "$GIT_REPO" |  grep -oP "(?<=\@).*?(?=\:)")
-# Yes this is really ugly. Shhhhhh
-#ssh-keygen -F "${GIT_HOST}"  > /dev/null || ssh-keyscan "${GIT_HOST}" >>~/.ssh/known_hosts
-
-#ssh-agent sh -c "ssh-add ~/deploy-key; git clone ${GIT_REPO}"
+source "${VARS_PATH:-./vars.sh}"
 
 export GIT_SSH_COMMAND="/usr/bin/ssh -qi ${GIT_SSH_KEY} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
